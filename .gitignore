@@ -1,2 +1,2 @@
-roles/external
-plays/*.retry
+/roles/external
+/plays/*.retry

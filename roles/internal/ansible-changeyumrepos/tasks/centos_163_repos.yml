@@ -1,0 +1,17 @@
+---
+
+
+- name: stat centos-base.repo file
+  stat: 
+    path="/etc/yum.repos.d/CentOS-Base.repo"
+  register: centosbase_stat
+
+- name: backup centos-base.repo file
+  command: mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
+  when: "{{ centosbase_stat.stat.exists }}"
+
+- name: Download Centos repo
+  get_url:
+    url: "http://mirrors.163.com/.help/CentOS{{ansible_distribution_major_version}}-Base-163.repo"
+    dest: "/etc/yum.repos.d/CentOS{{ansible_distribution_major_version}}-Base-163.repo"
+    mode: 0644

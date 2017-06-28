@@ -1,3 +1,0 @@
----
-  - include: network/weave.yml
-    when: k8s_network_selection == 'weave'

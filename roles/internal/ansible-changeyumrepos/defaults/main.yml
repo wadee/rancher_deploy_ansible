@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-changeyumrepos
+yum_repos_163 : true
+
+yum_repos_aliyun : true
+

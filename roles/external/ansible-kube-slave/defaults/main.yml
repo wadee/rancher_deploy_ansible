@@ -1,3 +1,0 @@
----
-# defaults file for ansible_role_kubernetes_slave
-  k8s_join_xtrargs: ''

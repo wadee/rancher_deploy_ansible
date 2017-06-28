@@ -1,0 +1,11 @@
+---
+# tasks file for ansible-changeyumrepos
+
+- name: make sure is centos
+  fail: 
+    msg="only support centos"
+  when: ansible_os_family != "RedHat" and ansible_distribution != "CentOS"
+
+- name: install 163 centos yum repos
+  include: "centos_163_repos.yml"
+  when: "{{ yum_repos_163 }}"

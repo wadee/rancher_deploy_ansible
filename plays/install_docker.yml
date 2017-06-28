@@ -1,0 +1,9 @@
+---
+
+- name: docker_install.yml | All roles
+  hosts: docker_install
+  become: True
+
+  roles:
+    - { role: ansible-hostname,            tags: ["hostname"] }
+    - { role: ansible-docker,            tags: ["docker"] }

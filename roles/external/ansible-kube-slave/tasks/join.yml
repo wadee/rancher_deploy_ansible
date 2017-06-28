@@ -1,3 +1,0 @@
----
-  - name: ':: cluster :: Joining node to Kubernetes cluster'
-    command: 'kubeadm join --token {{ k8s_cluster_token }} {{ k8s_join_xtrargs }} {{ k8s_master_node }}'
