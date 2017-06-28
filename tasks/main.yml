@@ -1,7 +1,0 @@
-- name: master
-  shell: curl -sSL http://aliacs-k8s.oss-cn-hangzhou.aliyuncs.com/installer/kubemgr-1.6.1.sh | bash -s nice --node-type master --key-id {{access_key_id}} --key-secret {{access_key_secert}}
-  register: deploy_master
-
-- name: save deploy_master output
-  local_action:
-      copy content="{{ deploy_master.stdout }}" dest="/tmp/deploy_master.output"
