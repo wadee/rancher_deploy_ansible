@@ -1,0 +1,36 @@
+---
+# tasks file for ansible-dockerimg-accelerate
+- name: stat /etc/docker
+  stat: 
+    path="/etc/docker"
+  register: etc_docker_stat
+
+- name: mkdir
+  file:
+    path: /etc/docker
+    state: directory
+    mode: 0755
+  when: "not {{ etc_docker_stat.stat.exists }}"
+
+- name: stat /etc/docker/daemon.json
+  stat: 
+    path="/etc/docker/daemon.json"
+  register: docker_daemon_stat
+
+- name: touch
+  file:
+    path: /etc/docker/daemon.json
+    state: touch
+    mode: 0755
+  when: "not {{ docker_daemon_stat.stat.exists }}"
+
+- name: write config to file
+  copy:
+    content="{{ docker_daemon_config|to_json }}"
+    dest="/etc/docker/daemon.json"
+
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+
+- name: systemctl restart docker
+  command: systemctl restart docker

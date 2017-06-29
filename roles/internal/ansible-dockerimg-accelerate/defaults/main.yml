@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-dockerimg-accelerate
+
+docker_daemon_config: 
+                "registry-mirrors": 
+                   - "https://9su2mj76.mirror.aliyuncs.com"
