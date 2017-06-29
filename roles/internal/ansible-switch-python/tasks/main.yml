@@ -1,0 +1,15 @@
+---
+# tasks file for ansible_switch_python
+- name: stat of /usr/local/bin/python
+  stat:
+    path="/usr/bin/python"
+  register: old_python_bin_stat
+
+- name: stat of /usr/bin/python
+  stat:
+    path="/usr/local/bin/python"
+  register: new_python_bin_stat
+
+- name: backup python
+  shell: mv  /usr/bin/python /usr/bin/python.bak && ln -s /usr/local/bin/python /usr/bin/python
+  when: "{{ new_python_bin_stat.stat.exists }} and {{ old_python_bin_stat.stat.exists }}"

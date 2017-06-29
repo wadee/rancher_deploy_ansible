@@ -1,9 +1,12 @@
 ---
 
-- name: docker_install.yml | All roles
-  hosts: docker_install
+- name: install_docker.yml | All roles
+  hosts: install_docker
   become: True
 
   roles:
     - { role: ansible-hostname,            tags: ["hostname"] }
+    - { role: ansible-changeyumrepos,      tags: ["changeyumrepos"] }
+    - { role: ansible-role-centos-python,      tags: ["ansible-role-centos-python"] }
+    # - { role: ansible-switch-python,      tags: ["ansible-switch-python"] }
     - { role: ansible-docker,            tags: ["docker"] }

@@ -7,30 +7,35 @@
   version: "1.0.0"
   name: ansible-docker
 
-- src: git+https://github.com/wadee/ansible_role_kubernetes_master.git
+
+- src: git+https://github.com/natbusa/ansible-role-centos-python.git
   version: "master"
-  name: ansible-kube-master
+  name: ansible-role-centos-python
 
-- src: git+https://github.com/digital-realms/ansible_role_kubernetes_slave.git
-  version: "master"
-  name: ansible-kube-slave
-#below Have not been used...but keep it in case will use it in the future
+# - src: git+https://github.com/wadee/ansible_role_kubernetes_master.git
+#   version: "master"
+#   name: ansible-kube-master
 
-- src: git+https://github.com/retr0h/ansible-etcd.git
-  version: "1.1"
-  name: ansible-etcd
+# - src: git+https://github.com/digital-realms/ansible_role_kubernetes_slave.git
+#   version: "master"
+#   name: ansible-kube-slave
+# #below Have not been used...but keep it in case will use it in the future
 
-- src: git+https://github.com/Stouts/Stouts.sudo.git
-  version: "1.0.0"
+# - src: git+https://github.com/retr0h/ansible-etcd.git
+#   version: "1.1"
+#   name: ansible-etcd
 
-- src: git+https://github.com/ANXS/openssh.git
-  version: "v1.0.1"
-  name: ANXS.openssh
+# - src: git+https://github.com/Stouts/Stouts.sudo.git
+#   version: "1.0.0"
 
-- src: git+https://github.com/knopki/ansible-locale.git
-  version: "v1.0.3"
-  name: knopki.locale
+# - src: git+https://github.com/ANXS/openssh.git
+#   version: "v1.0.1"
+#   name: ANXS.openssh
 
-- src: git+https://github.com/AutomationWithAnsible/ansible-nginx.git
-  version: "v1.0.3"
-  name: ansible-nginx
+# - src: git+https://github.com/knopki/ansible-locale.git
+#   version: "v1.0.3"
+#   name: knopki.locale
+
+# - src: git+https://github.com/AutomationWithAnsible/ansible-nginx.git
+#   version: "v1.0.3"
+#   name: ansible-nginx
