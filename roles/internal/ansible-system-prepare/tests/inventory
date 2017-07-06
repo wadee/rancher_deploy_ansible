@@ -1,0 +1,2 @@
+[test]
+inventory ansible_ssh_host=10.30.128.237 ansible_ssh_user=root

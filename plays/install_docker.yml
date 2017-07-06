@@ -7,6 +7,7 @@
   roles:
     - { role: ansible-hostname,            tags: ["hostname"] }
     - { role: ansible-changeyumrepos,      tags: ["changeyumrepos"] }
-    - { role: ansible-role-centos-python,      tags: ["ansible-role-centos-python"] }
-    # - { role: ansible-switch-python,      tags: ["ansible-switch-python"] }
+    - { role: ansible-role-centos-python,      tags: ["role-centos-python"] }
+    - { role: ansible-system-prepare,      tags: ["system-prepare"] }
     - { role: ansible-docker,            tags: ["docker"] }
+    - { role: ansible-dockerimg-accelerate,            tags: ["dockerimg-accelerate"] }

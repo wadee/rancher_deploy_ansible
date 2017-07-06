@@ -9,9 +9,15 @@
 - name: backup centos-base.repo file
   command: mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
   when: "{{ centosbase_stat.stat.exists }}"
+# https://repo.mysql.com//mysql57-community-release-el7-11.noarch.rpm
 
 - name: Download Centos repo
   get_url:
     url: "http://mirrors.163.com/.help/CentOS{{ansible_distribution_major_version}}-Base-163.repo"
     dest: "/etc/yum.repos.d/CentOS{{ansible_distribution_major_version}}-Base-163.repo"
     mode: 0644
+
+- name: install the mysql rpm from a remote repo
+  yum:
+    name: https://repo.mysql.com//mysql57-community-release-el7-11.noarch.rpm
+    state: present

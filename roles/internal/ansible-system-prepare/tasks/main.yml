@@ -1,0 +1,45 @@
+---
+# tasks file for ansible-system-prepare
+
+
+- name: install chrony
+  yum: name={{item}} state=latest
+  with_items:
+    - chrony
+
+- name: start chrony
+  service:
+    name: chronyd
+    state: started
+
+- name: enable chrony
+  service:
+    name: chronyd
+    enabled: yes
+
+# - name: dd if=/dev/zero of=/dev/vdb
+#   command: dd if=/dev/zero of=/dev/vdb
+
+# - name: install mkfs.xfs
+#   yum: name={{item}} state=latest
+#   with_items:
+#     - xfsprogs
+#     - xfsdump
+#     - xfsprogs-devel
+#     - xfsprogs-qa-devel
+
+# - name: yum update -y
+#   yum: name=* state=latest
+
+# - name: mkfs.xfs -n ftype=1
+#   filesystem:
+#     fstype: xfs
+#     opts: -n ftype=1
+#     dev: /dev/vdb
+
+# - name: mount 
+#   mount:
+#     name: /var/lib/docker
+#     src: /dev/vdb
+#     fstype: xfs
+#     state: mounted
