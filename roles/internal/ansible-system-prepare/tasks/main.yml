@@ -1,11 +1,22 @@
 ---
 # tasks file for ansible-system-prepare
 
+- name: yum update -y
+  yum: name=* state=latest
 
 - name: install chrony
   yum: name={{item}} state=latest
   with_items:
     - chrony
+
+- name: pip
+  pip: name={{item}} state=latest
+  with_items:
+    - urllib3
+    - pyopenssl
+    - ndg-httpsclient
+    - pyasn1
+
 
 - name: start chrony
   service:
